@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookipedia Elib</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script type="text/javascript" src="static/js/index.js"></script> -->
+    <link rel="stylesheet" href="static/css/style.css" />
+    <script type="text/javascript" src="static/js/index.js"></script>
+  </head>
+  <body>
+    <!-- Header Section NavigationBar -->
+    <header class="header">
+      <div class="header-1">
+        <a href="#" class="logo"> <i class="fas fa-book"></i> Bookiepedia </a>
+
+        <form action="" class="search-form">
+          <input
+            type="search"
+            name=""
+            placeholder="search here..."
+            id="search-box"
+          />
+          <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+          <div id="search-btn" class="fas fa-search"></div>
+          <!-- <a href="#" class="fas fa-heart"></a> -->
+          <div id="login-btn" class="fas fa-user"></div>
+          {% if user.is_authenticated %}
+          	<script type="text/javascript">document.getElementById('login-btn').style.display = "none"; </script>
+          	<a href="">{{user.username}}</a>
+          	<a href="logout"><i class="fa fa-sign-out"></i></a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="header-2">
+        <nav class="navbar">
+          <a href="#home">home</a>
+          <a href="#featured">Showcase</a>
+          {% if user.is_authenticated %}
+          	<a href="upload">upload</a>
+          	<a href="#blogs">blogs</a>
+          {% endif %}
+          <a href="#contact">Help {% csrf_token %}</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Header Section Ends -->
+
+    <!-- Login / Register section -->
+
+    <div class="login-form-container">
+      <div id="close-login-btn" class="fas fa-times"></div>
+
+      <form action="">
+        <h3>sign in</h3>
+        <span>username</span>
+        <input
+          type="text"
+          name="username"
+          class="box"
+          placeholder="enter your username"
+          id="username"
+        />
+        <span>password</span>
+        <input
+          type="password"
+          name="password"
+          class="box"
+          placeholder="enter your password"
+          id="password"
+        />
+        
+        <input type="button" id="get_in" value="sign in" class="btn"/>
+        <p>forget password ? <a href="#">click here</a></p>
+        <p>don't have an account ? <a href="#">create one</a></p>
+        <center><div id="buffer" class="bufferer"></div></center>
+      </form>
+    </div>
+    <!-- login / Register Section Ends -->
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+      <div class="row">
+        <div class="content">
+          <h3>Welcome to Bookiepedia</h3>
+          <p>
+            Bookiepedia eLibrary is a comprehensive digital learning solution to
+            empower learners across all disciplines. They can now access their
+            course books as per their convenience, from anywhere, on any device.
+          </p>
+          <a href="#" class="r-btn">Read now</a>
+        </div>
+        <div class="swiper books-slider">
+          <div class="swiper-wrapper">
+            <a href="#" class="swiper-slide"
+              ><img src="static/images/book-1.png" alt=""
+            /></a>
+            <a href="#" class="swiper-slide"
+              ><img src="static/images/book-2.png" alt=""
+            /></a>
+            <a href="#" class="swiper-slide"
+              ><img src="static/images/book-3.png" alt=""
+            /></a>
+            <a href="#" class="swiper-slide"
+              ><img src="static/images/book-4.png" alt=""
+            /></a>
+            <a href="#" class="swiper-slide"
+              ><img src="static/images/book-5.png" alt=""
+            /></a>
+            <a href="#" class="swiper-slide"
+              ><img src="static/images/book-6.png" alt=""
+            /></a>
+          </div>
+          <img src="static/images/stand.png" class="stand" alt="" />
+        </div>
+      </div>
+    </section>
+    <!-- Home Section End -->
+
+    <!-- SECTION OF INFO -->
+<section class="icons-container">
+   
+</section>
+<!-- SECTION OF INFO END -->
+
+
+<!-- Featured Books Section  -->
+<section class="featured" id="featured">
+
+    <h1 class="heading"> <span> Showcase books</span> </h1>
+
+    <div class="swiper featured-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-search"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="static/images/book-1.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books </h3> 
+
+                    <a href="#" class="btn-b">Read Book</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-search"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="static/images/book-2.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    
+                    <a href="#" class="btn-b">Read Book</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-search"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="static/images/book-3.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    
+                    <a href="#" class="btn-b">Read Book</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-search"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="static/images/book-4.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    
+                    <a href="#" class="btn-b">Read Book</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-search"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="static/images/book-5.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    
+                    <a href="#" class="btn-b">Read Book</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-search"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="static/images/book-6.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    
+                    <a href="#" class="btn-b">Read Book</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-search"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="static/images/book-7.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    
+                    <a href="#" class="btn-b">Read Book</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-search"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="static/images/book-8.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    
+                    <a href="#" class="btn-b">Read Book</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-search"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="static/images/book-9.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    
+                    <a href="#" class="btn-b">Read Book</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    <a href="#" class="fas fa-search"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="static/images/book-10.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    
+                    <a href="#" class="btn-b">Read Book</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+    
+
+</section>
+<!-- Featured Books Section Ends  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="static/js/script.js"></script>    
+  </body>
+</html>

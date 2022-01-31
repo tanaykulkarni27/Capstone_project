@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login | sign-up</title>
+    <link rel="stylesheet" href="static/css/formstyle.css" />
+</head>
+
+<body>
+    <div class="hero">
+        <div id = "frm" class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <div class="social-icons">
+                <img src="static/images/fb.png" height="35" alt="" />
+                <img src="static/images/tw.png" height="35" alt="" />
+                <img src="static/images/gp.png" height="35" alt="" />
+            </div>
+            <form id="login" method="post" class="input-group">
+                {% csrf_token %}
+                <input type="text" name="typ" style="visibility: hidden;" value="LOG">
+                <input type="text" class="input-field" placeholder="User Id" name="ID" required >
+                <input type="text" class="input-field" placeholder="Enter password" name = "PWD" required >
+                <br><br><br>{{error}}
+                <!-- <input type="checkbox" class="checkbox" /><span>Remember password</span> -->
+                <button type="submit" class="submit-btn">log in</button>
+            </form>
+            <form id="register" method="POST" class="input-group">
+                {% csrf_token %}
+                <input type="text" name="typ" style="visibility: hidden;" value="REG">
+                <input type="text" class="input-field" placeholder="First Name" required >
+                <input type="text" class="input-field" placeholder="Last Name" required >
+                <input type="text" class="input-field" placeholder="User Id" required >
+                <input type="email" class="input-field" placeholder="email Id" required >
+                <input type="password" class="input-field" placeholder="Enter password" required >
+                <input type="checkbox" class="checkbox" /><label>I agree to the terms & conditions</label>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+    <script>
+var x=document.getElementById("login");
+var y=document.getElementById("register");
+var z=document.getElementById("btn");
+function register(){
+    document.getElementById('frm').style.height = '580px';
+    x.style.left="-400px"
+    y.style.left="50px"
+    z.style.left="110px"
+    }
+    function login(){
+        document.getElementById('frm').style.height = '480px';
+        x.style.left="50px";
+        y.style.left="450px";
+        z.style.left="0";
+    }
+    </script>
+</body>
+</html>
