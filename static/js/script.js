@@ -37,11 +37,11 @@ window.onload = () => {
 };
 
 function loader() {
-  document.querySelector(".loader-container").classList.add("active");
+  //document.querySelector(".loader-container").classList.add("active");
 }
 
 function fadeOut() {
-  setTimeout(loader, 4000);
+  // setTimeout(loader, 4000);
 }
 //--------------------------------------------------------------Header Login end-------------------------------------------------------
 

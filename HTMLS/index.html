@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <link rel="stylesheet" href="static/css/style.css" />
-
+     <script type="text/javascript" href="static/js/login.js"></script>
     <title>Bookipedia Elib</title>
 
     <link
@@ -41,6 +41,12 @@
           <div id="search-btn" class="fas fa-search"></div>
           <a href="#" class="fas fa-heart"></a>
           <div id="login-btn" class="fas fa-user"></div>
+          {% if user.is_authenticated %}
+            <script type="text/javascript">document.getElementById('login-btn').style.display = "none"; </script>
+            <a href="">{{user.username}}</a>
+            <a href="logout"><i class="fa fa-sign-out"></i></a>
+          {% endif %}
+        </div>
         </div>
       </div>
 
@@ -48,7 +54,7 @@
         <nav class="navbar">
           <a href="#home">home</a>
           <a href="#Books">Books</a>
-          <a href="#Upload">Upload</a>
+          <a href="upload">Upload</a>
           <a href="#Categories">Categories</a>
           <a href="#blogs">blogs</a>
           <a href="#Contact">Contact</a>
@@ -99,6 +105,7 @@
         <input type="submit" value="sign in" class="btn" />
         <p>forget password ? <a href="#">click here</a></p>
         <p>don't have an account ? <a href="#">create one</a></p>
+        <center><div id="buffer" class="bufferer"></div></center>
       </form>
     </div>
     <!----------------------------------------------------- Home Section ------------------------------------------------------------>

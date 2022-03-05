@@ -35,8 +35,6 @@ def UPLOAD(req):
     BOOK(title = NAME,desc = DESCRIPTION,category = CATEGORY,language = LANGUAGE,COVER = COVER_VALUE,DOC = FILE_VALUE).save()
     return redirect("/")
 class ACT(APIView):
-    # def post(self,req):
-        
     def get(self,req):
         als = BOOK.objects.all()
         category = req.GET.get('category')
