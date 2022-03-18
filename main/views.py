@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.contrib import messages
-from django.shortcuts import render,HttpResponse,redirect
+from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
 from django.contrib.auth import ( get_user_model,authenticate, login,logout )
 from .models import BOOK ,User
 import speech_recognition as sr
@@ -10,6 +10,15 @@ from rest_framework import serializers
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+def __detailed(req,id):
+    x = get_object_or_404(BOOK,id = id)
+    return HttpResponse(x)
+
+def view_grid(req):
+    if req.user.is_authenticated:
+        return render(req,'urlel.html')
+    return redirect('/')
+
 def listen():
         r = sr.Recognizer()
         with sr.Microphone() as source:

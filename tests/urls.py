@@ -19,6 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from main import views,__voice
 urlpatterns = [
+    path("DETAIL/<int:id>",views.__detailed),
+    path("grid",views.view_grid),
     path("vctotxt",__voice.home),
     path('RESTAPI',views.ACT.as_view()),
     path('logout',views.getout),
