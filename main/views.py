@@ -12,7 +12,14 @@ from rest_framework.response import Response
 from rest_framework import status
 def __detailed(req,id):
     x = get_object_or_404(BOOK,id = id)
-    return HttpResponse(x)
+    assert x,"ROW NOT FOUND";
+    context = dict()
+    context['image_url'] = x.COVER;
+    context['title'] = x.title;
+    context['desc'] = x.desc;
+    context['cate'] = x.category
+    context['book_url'] = x.DOC
+    return render(req,'DETAILS.html',context)
 
 def view_grid(req):
     if req.user.is_authenticated:

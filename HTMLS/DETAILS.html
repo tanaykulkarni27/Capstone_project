@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script type="text/javascript" src="{% static 'js/detail.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
+	<style type="text/css">
+		.back_img{
+		border: 0px;
+		width: 100%;
+		height: 50%;
+		background-image: url('/MEDIA/{{image_url}}');
+		filter: blur(8px);
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	</style>
+</head>	
+<body onload="f()">
+	<div class="back_img" id="x"></div>
+	<div id="mask" style="background-color : rgb(0,0,0,0.5);
+	                      position: absolute;
+	                      top:0px;">
+			<table class="table table-borderless" style="border: 0px;margin-top: 50px;">
+				<tbody>
+					<tr>
+					<td valign="middle"><img id="ss" src="/MEDIA/{{image_url}}"></td>
+		    		<td valign="middle">
+		    			<p class="book_title">Title : {{title}}</p>
+						<p class="book_author">Author : author of the book</p>
+						<p class="book_desc"> <b>Category :</b> {{cate}}</p>
+						<p class="book_desc"> <b>About Story : </b><br>{{desc}}
+						</p>
+					</td>
+			      	</tr>
+				</tbody>
+			</table>
+	</div>
+	<br>
+	<center>
+		<div class="d-grid gap-2">
+	  		<button class="btn btn-primary" onclick = "window.location.href = '/MEDIA/{{book_url}}';" type="button">Read this book</button>
+		</div>
+	</center>
+</body>
+</html>
+<!-- <div class="back_img"></div>  
+<div class="row" >
+	<div class="col" style="margin-top:50px;"><img src="back.jpg"></div>
+	<div class="col"style="margin-top:50px;">
+		<p>Title of book</p>
+			<p>Author of book</p>
+			<p>Description of book sadfj dlkfsj lkdsjf ljdf glkjdfglk jdflk jdflkj gldkfjg dfkjg lkdjf glkjdf gkjdflkgj dflkjg dflkjg kdfjg  lkjdfglk jdfglkjdf lkgj dflkjg lkdfj glkdfjg lkjdflkgj dflk gjdlkjfg lkjdfglk jdflk gjdflkjd gjdflk gjdflkjg
+		</p>
+	</div>
+</div>-->
+<!-- 
+<div class="container">
+	<div>
+		<div class="row">
+			<div class="col" >
+				<img src="back.jpg">
+			</div>
+			<div class="col"> 
+				<p>Title of book</p>
+				<p>Author of book</p>
+				<p>Description of book sadfj dlkfsj lkdsjf ljdf glkjdfglk jdflk jdflkj gldkfjg dfkjg lkdjf glkjdf gkjdflkgj dflkjg dflkjg kdfjg lkjdfglk jdfglkjdf lkgj dflkjg lkdfj glkdfjg lkjdflkgj dflk gjdlkjfg lkjdfglk jdflk gjdflkjd gjdflk gjdflkjg
+				</p>
+			</div>
+		</div>
+	</div>	
+</div>
+-->
+
+<!--
+		<table border="1">
+		<tr>
+			<td>
+				<img src="back.jpg">
+			</td>
+			<td>
+				<table>
+					<tr> <td>Book Title</td> </tr>
+					<tr> <td>Book Author</td> </tr>
+					<tr> <td>Description  </td> </tr>
+					<tr> <td>Heart Button </td> </tr>
+					
+				</table>
+			</td>
+		</tr>
+	</table>
+	<div class="header"></div>
+		<div class="dcontent" id="dcontent">
+			<table>
+				<tr>
+					<td> <img class="book_image" src="back.jpg"> </td>
+					<td> Title of the book </td>
+				</tr>	
+			</table>
+			
+		</div>
+<style type="text/css">
+		html, body { height: 100%; width: 100%; margin: 0; }
+		.header{
+			width: 100%;
+			height: 50%;
+			background-image: url('back.jpg');
+			filter: blur(8px);
+			background-repeat: no-repeat;
+			background-size: cover;
+			/*border:12px solid red;*/
+		}
+		.dcontent{
+			line-height: 200px;
+			width: 100%;
+			height: 50%;
+			background-color: rgb(0,0,0,0.5);
+		    padding: 5% 0;
+		    position: absolute;
+			top: 0%;
+			left:50%;
+			transform: translate(-50%,0%);
+		}
+		.book_image{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 25px;
+			height: 60%;
+		    margin: auto;
+		}
+	</style>
+
+  -->
