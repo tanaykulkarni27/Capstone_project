@@ -1,3 +1,4 @@
+
 body {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
@@ -6,6 +7,7 @@ body {
   /* background-image: url("../images/library.jpg"); */
 /* background-repeat: no-repeat; */
 }
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -156,3 +158,18 @@ font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 /* .form-style-6 input[type="submit"]:hover
   background: #2EBC99; */
 /* }  */
+
+.bufferer {
+  width: 30px;
+  height: 30px;
+  display: none;
+  background-color: #000000;
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  animation: buffer_anim 2s linear infinite;
+}
+@keyframes buffer_anim {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

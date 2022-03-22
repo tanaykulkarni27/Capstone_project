@@ -1,15 +1,15 @@
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="static/css/upload.css">
-	<script type="text/javascript" src="static/js/upload.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/upload.css">
+	<script type="text/javascript" src="/static/js/upload.js"></script>
 </head>
 <body>
 	  	</ul>
 		<div class="form-style-6">
 			<h1>BOOKIPEDIA E-LIBRARY</h1>
 				<form enctype="multipart/form-data" id="upld_form">
-					<input type="text" id="name" name="bookname" placeholder="Book Name*" required/>
+					<input type="text" id="name" autocomplete="off" name="bookname" placeholder="Book Name*" required/>
 					<textarea cols="25" rows="4" id = "desc" name="bookdesc" placeholder="Book Description*" required></textarea>
 					<!-- <input type="text" id="password" name="bookauthor" placeholder="Book Author*"/ required> -->
 					<select id = "cat" name="category" required>
@@ -37,9 +37,10 @@
 					<label>Book</label>
 					<input type="file" name="bookfile" id="bookfile" accept=".pdf" required/>
 					<input type="button" id="submit" name="submit" value="Submit">
-					<center><br><div id="buffer" class="bufferer"></div></center>
+					<center><div id="buffer" class="bufferer"></div></center>
 					<!-- Submit</button> -->
 			</form>
 		</div>
+		
 	</body>
 </html>
