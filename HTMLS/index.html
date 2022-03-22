@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <link rel="stylesheet" href="static/css/style.css" />
-     <script type="text/javascript" href="static/js/login.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <!-- <script type="text/javascript" href="{% static 'js/login.js' %}"></script> -->
     <title>Bookipedia Elib</title>
 
     <link
@@ -80,15 +82,15 @@
     <div class="login-form-container">
       <div id="close-login-btn" class="fas fa-times"></div>
 
-      <form action="">
+      <form>
         <h3>sign in</h3>
         <span>username</span>
         <input
-          type="email"
+          type="text"
           name="sign_in"
           class="box"
           placeholder="enter your email"
-          id=""
+          id="username"
         />
         <span>password</span>
         <input
@@ -96,13 +98,13 @@
           name="sign_password"
           class="box"
           placeholder="enter your password"
-          id=""
+          id="password"
         />
-        <div class="checkbox">
-          <!-- <input type="checkbox" name="" id="remember-me" /> -->
+        <!-- <div class="checkbox">
+          <input type="checkbox" name="" id="remember-me" />
           <label for="remember-me"> remember me</label>
-        </div>
-        <input type="submit" value="sign in" class="btn" />
+        </div> -->
+        <button onclick="sendLogin()" type="button" value="sign in" class="btn">sign in</button>
         <p>forget password ? <a href="#">click here</a></p>
         <p>don't have an account ? <a href="#">create one</a></p>
         <center><div id="buffer" class="bufferer"></div></center>
