@@ -81,3 +81,6 @@ class BOOK(models.Model):
         return self.title
     def get_pdf(self):
         return self.DOC
+class Cart(models.Model):
+    books = models.ForeignKey(BOOK , default = '' , on_delete = models.CASCADE)
+    user_ids = models.ForeignKey(User , default = '' , on_delete = models.CASCADE)

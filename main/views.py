@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.contrib import messages
 from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
 from django.contrib.auth import ( get_user_model,authenticate, login,logout )
-from .models import BOOK ,User
+from .models import BOOK , User , Cart
 import speech_recognition as sr
 import json
 import speech_recognition as sr
@@ -10,15 +10,47 @@ from rest_framework import serializers
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+#favourite page code
+def __favourite(req):
+    return render(req,'favourite.html')
+#Restapi for Cart
+class CC(serializers.ModelSerializer): # serializer class for cart
+    class Meta:
+        model = Cart
+        fields = ('__all__') 
+class __API(APIView): # api for cart 
+    def get(self,req):
+        __user = req.user.id
+        als = Cart.objects.all().filter(user_ids = __user)
+        return Response(CC(als,many = True).data)
+def remove_book(req,book_id):
+    user_id = req.user.id
+    x = get_object_or_404(Cart,books = book_id,user_ids = user_id)
+    x.delete();
+    return HttpResponse('done')
+def save_book(req,book_id):
+    user_id = req.user.id
+    try:
+        x = get_object_or_404(Cart,books = book_id,user_ids = user_id)
+    except:
+        pp = Cart()
+        pp.books = get_object_or_404(BOOK,id = book_id)
+        pp.user_ids = req.user
+        pp.save()
+    return HttpResponse('done')
 def __detailed(req,id):
     x = get_object_or_404(BOOK,id = id)
     assert x,"ROW NOT FOUND";
     context = dict()
+    context['in_fav'] = -1
+    if len(Cart.objects.all().filter(books = id,user_ids = req.user.id)) <= 0:
+        context['in_fav'] = 1
     context['image_url'] = x.COVER;
     context['title'] = x.title;
     context['desc'] = x.desc;
     context['cate'] = x.category
     context['book_url'] = x.DOC
+    context['id'] = id
     return render(req,'DETAILS.html',context)
 
 def view_grid(req):
@@ -41,6 +73,7 @@ class SERIAL(serializers.ModelSerializer):
     class Meta:
         model = BOOK
         fields = ('__all__')
+
 def UPLOAD(req):
     NAME = req.POST.get('bookname')
     DESCRIPTION = req.POST.get('bookdesc')
@@ -55,6 +88,7 @@ class ACT(APIView):
         als = BOOK.objects.all()
         category = req.GET.get('category')
         inner = req.GET.get('search')
+        idss = req.GET.get('id')
         if inner == 'everything':
             inner = None
         if category == "ALL":
@@ -63,6 +97,8 @@ class ACT(APIView):
             als = als.filter(category = category)
         if inner != None:
             als = als.filter(title__contains = inner)
+        if idss != None:
+            als = als.filter(id = idss)
         return Response(SERIAL(als,many = True).data)
 def getout(req):    
     logout(req)

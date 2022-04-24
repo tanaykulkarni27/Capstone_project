@@ -41,7 +41,7 @@
 
         <div class="icons">
           <div id="search-btn" class="fas fa-search"></div>
-          <a href="#" class="fas fa-heart"></a>
+          <a href="/fav" class="fas fa-heart"></a>
           <div id="login-btn" class="fas fa-user"></div>
           {% if user.is_authenticated %}
             <script type="text/javascript">document.getElementById('login-btn').style.display = "none"; </script>
@@ -54,10 +54,10 @@
 
       <div class="header-2">
         <nav class="navbar">
-          <a href="#home">home</a>
+          <a href="/">home</a>
           <a href="grid">Books</a>
-          <a href="upload">Upload</a>
-          <a href="#Categories">Categories</a>
+          <a href="/upload">Upload</a>
+          <a href="/fav">favourites</a>
           <a href="#blogs">blogs</a>
           <a href="#Contact">Contact</a>
         </nav>

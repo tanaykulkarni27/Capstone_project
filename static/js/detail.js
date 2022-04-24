@@ -1,7 +1,18 @@
-function f(ll){
-	var base_url = window.location.origin;
-	// alert(base_url + ll);
-	var myImg = document.getElementById('ss');
-	var currHeight = myImg.clientHeight;
-	document.getElementById("x").style.backgroundImage = "url("+base_url + ll +")";
+function add_book(id) {
+	$.ajax({
+				type : "GET",
+				url : "/savebook/"+id,
+				success:function(data){
+					location.reload();	
+				}
+			});
+}
+function remove_book(id) {
+	$.ajax({
+				type : "GET",
+				url : "/remove/"+id,
+				success:function(data){
+					location.reload();	
+				}
+			});
 }

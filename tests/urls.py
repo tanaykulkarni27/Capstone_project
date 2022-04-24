@@ -1,5 +1,5 @@
-"""tests URL Configuration
-
+"""
+tests URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
@@ -19,6 +19,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from main import views,__voice
 urlpatterns = [
+    path('fav',views.__favourite),
+    path('cartapi',views.__API.as_view()),
+    path("savebook/<int:book_id>",views.save_book),
+    path("remove/<int:book_id>",views.remove_book),
     path("DETAIL/<int:id>",views.__detailed),
     path("grid",views.view_grid),
     path("vctotxt",__voice.home),

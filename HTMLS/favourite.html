@@ -6,18 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link
     rel="stylesheet"
     href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
   />
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="{% static 'css/urlel.css' %}">
-    <link rel="javaScript" href="{% static 'js/script.js' %}">
+    <link rel="stylesheet" href="{% static 'css/favourite.css' %}">
+    <link rel="javaScript" href="{% static 'js/favourite.js' %}">
     <title>URLEL SORT</title>
     
   
-  <script type="text/javascript" src="{% static 'js/handle_grid.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/handle_favourite_grid.js' %}"></script>
   <!-- font awesome cdn link  -->
   <link
     rel="stylesheet"
@@ -34,20 +33,15 @@
               type="search"
               name=""
               placeholder="search here..."   
-              id="search_box"
+              id="search-box"
             />
-            <button  type="button" onclick="search_things(this)" style = "
-              width: 50px;
-              height: 50px;
-              background-color : transparent;
-            " for="search-box" class="fas fa-search"></button>
+            <label for="search-box" class="fas fa-search"></label>
           </form>
-          <!-- <button onclick="search_things()" id="search_btn" ></button> -->
-          <div class="icons">  
-            <i onclick="voice_search()" class='fas fa-microphone' style="color:white;font-size: 30px;"></i>
+  
+          <div class="icons">
+            <div id="search-btn" class="fas fa-search"></div>
             <a href="/fav" class="fas fa-heart"></a>
-
-            <!-- <div id="login-btn" class="fas fa-user"></div> -->
+            <div id="login-btn" class="fas fa-user"></div>
           </div>
         </div>
   
