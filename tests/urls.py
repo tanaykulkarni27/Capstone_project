@@ -32,7 +32,7 @@ urlpatterns = [
     path('getin',views.GET_IN),
     path('Pupload',views.UPLOAD),
     path('upload',views.FILE_UPLOAD),
-    path('', views.home),
-    path('admin/', admin.site.urls),
+    path('',views.home),
+    path('admin/',admin.site.urls),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
