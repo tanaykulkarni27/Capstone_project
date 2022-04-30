@@ -77,6 +77,8 @@ class BOOK(models.Model):
         book_obj.language = LANGUAGE
         book_obj.DOC = DOC
         book_obj.save()
+    def get_url(self):
+        return self.DOC.url
     def __str__(self):
         return self.title
     def get_pdf(self):

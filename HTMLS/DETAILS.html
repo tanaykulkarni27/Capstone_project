@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="/static/js/detail.js"></script>
 	<link rel="stylesheet" type="text/css" href="/static/css/detail.css">
 </head>	
-<body onload="f('/MEDIA/{{image_url}}')">
+<body >
 	 <div class="back_img" id="x"></div>
 	<div id="mask" style="background-color : rgb(0,0,0,0.5);
 	                      position: absolute;
@@ -34,101 +34,20 @@
 	<br>
 	<center>
 		<div class="d-grid gap-2">
+			<div style="margin: 50px;"></div>
 	  		<button class="btn btn-primary" onclick = "window.location.href = '/MEDIA/{{book_url}}';" type="button">Read this book</button>
 	  		{% if in_fav == 1 %}
 	  			<button class="btn btn-primary" onclick = "add_book('{{id}}')" type="button">Add to favourite</button>
 	  		{% else %}	
 	  			<button class="btn btn-primary" onclick = "remove_book('{{id}}')" style = "background: red;" type="button">Remove to favourite</button>
-	  		{% endif %}	
+	  		{% endif %}
+
+			<button class="btn btn-primary" id="start_listening" onclick = "Listen_book('{{id}}')" type="button">Listen this book</button>
+			<button id="stop_listening" onclick="stop_listening_book()" class="btn btn-primary" style="
+				background-color:red;
+				display: none;
+			" type="button">Stop Listening</button>
 		</div>
 	</center>
 </body>
 </html>
-<!-- <div class="back_img"></div>  
-<div class="row" >
-	<div class="col" style="margin-top:50px;"><img src="back.jpg"></div>
-	<div class="col"style="margin-top:50px;">
-		<p>Title of book</p>
-			<p>Author of book</p>
-			<p>Description of book sadfj dlkfsj lkdsjf ljdf glkjdfglk jdflk jdflkj gldkfjg dfkjg lkdjf glkjdf gkjdflkgj dflkjg dflkjg kdfjg  lkjdfglk jdfglkjdf lkgj dflkjg lkdfj glkdfjg lkjdflkgj dflk gjdlkjfg lkjdfglk jdflk gjdflkjd gjdflk gjdflkjg
-		</p>
-	</div>
-</div>-->
-<!-- 
-<div class="container">
-	<div>
-		<div class="row">
-			<div class="col" >
-				<img src="back.jpg">
-			</div>
-			<div class="col"> 
-				<p>Title of book</p>
-				<p>Author of book</p>
-				<p>Description of book sadfj dlkfsj lkdsjf ljdf glkjdfglk jdflk jdflkj gldkfjg dfkjg lkdjf glkjdf gkjdflkgj dflkjg dflkjg kdfjg lkjdfglk jdfglkjdf lkgj dflkjg lkdfj glkdfjg lkjdflkgj dflk gjdlkjfg lkjdfglk jdflk gjdflkjd gjdflk gjdflkjg
-				</p>
-			</div>
-		</div>
-	</div>	
-</div>
--->
-
-<!--
-		<table border="1">
-		<tr>
-			<td>
-				<img src="back.jpg">
-			</td>
-			<td>
-				<table>
-					<tr> <td>Book Title</td> </tr>
-					<tr> <td>Book Author</td> </tr>
-					<tr> <td>Description  </td> </tr>
-					<tr> <td>Heart Button </td> </tr>
-					
-				</table>
-			</td>
-		</tr>
-	</table>
-	<div class="header"></div>
-		<div class="dcontent" id="dcontent">
-			<table>
-				<tr>
-					<td> <img class="book_image" src="back.jpg"> </td>
-					<td> Title of the book </td>
-				</tr>	
-			</table>
-			
-		</div>
-<style type="text/css">
-		html, body { height: 100%; width: 100%; margin: 0; }
-		.header{
-			width: 100%;
-			height: 50%;
-			background-image: url('back.jpg');
-			filter: blur(8px);
-			background-repeat: no-repeat;
-			background-size: cover;
-			/*border:12px solid red;*/
-		}
-		.dcontent{
-			line-height: 200px;
-			width: 100%;
-			height: 50%;
-			background-color: rgb(0,0,0,0.5);
-		    padding: 5% 0;
-		    position: absolute;
-			top: 0%;
-			left:50%;
-			transform: translate(-50%,0%);
-		}
-		.book_image{
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 25px;
-			height: 60%;
-		    margin: auto;
-		}
-	</style>
-
-  -->

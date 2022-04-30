@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from main import views,__voice
+from main import views,__voice,__txttospc
+# pause_reading
 urlpatterns = [
+    path('pause',__txttospc.pause_reading),
+    path('listen/<int:id>',__txttospc.read_ppl),
     path('fav',views.__favourite),
     path('cartapi',views.__API.as_view()),
     path("savebook/<int:book_id>",views.save_book),
