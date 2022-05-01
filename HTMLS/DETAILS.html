@@ -35,14 +35,14 @@
 	<center>
 		<div class="d-grid gap-2">
 			<div style="margin: 50px;"></div>
-	  		<button class="btn btn-primary" onclick = "window.location.href = '/MEDIA/{{book_url}}';" type="button">Read this book</button>
+	  		<button class="btn btn-primary" onclick = "window.open('/MEDIA/{{book_url}}');" type="button">Read this book</button>
 	  		{% if in_fav == 1 %}
 	  			<button class="btn btn-primary" onclick = "add_book('{{id}}')" type="button">Add to favourite</button>
 	  		{% else %}	
 	  			<button class="btn btn-primary" onclick = "remove_book('{{id}}')" style = "background: red;" type="button">Remove to favourite</button>
 	  		{% endif %}
 
-			<button class="btn btn-primary" id="start_listening" onclick = "Listen_book('{{id}}')" type="button">Listen this book</button>
+			<button class="btn btn-primary" id="start_listening" onclick = "Listen_book('{{id}}','/MEDIA/{{book_url}}')" type="button">Listen this book</button>
 			<button id="stop_listening" onclick="stop_listening_book()" class="btn btn-primary" style="
 				background-color:red;
 				display: none;

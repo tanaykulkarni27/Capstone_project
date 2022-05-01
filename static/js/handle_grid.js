@@ -46,9 +46,21 @@ function __search(txt){
     },
   });
 }
+// VOICE SEARCH
 function voice_search(){
     $.ajax({
-
+      type : "GET",
+      url : '/vctotxt',
+      beforeSend:function(){  
+        
+      },
+      success:function(res){
+        if(res['status'] == false){
+          alert("try again");
+          return;
+        }
+        __search(res['text']);
+      }
     });
 }
 function search_things(llk) {

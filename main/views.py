@@ -4,6 +4,7 @@ from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
 from django.contrib.auth import ( get_user_model,authenticate, login,logout )
 from .models import BOOK , User , Cart
 import speech_recognition as sr
+from pathlib import Path
 import json
 import speech_recognition as sr
 from rest_framework import serializers
@@ -39,12 +40,15 @@ def save_book(req,book_id):
         pp.save()
     return HttpResponse('done')
 def __detailed(req,id):
+    BASE_DIR = Path(__file__).resolve().parent.parent
     x = get_object_or_404(BOOK,id = id)
     assert x,"ROW NOT FOUND";
     context = dict()
     context['in_fav'] = -1
     if len(Cart.objects.all().filter(books = id,user_ids = req.user.id)) <= 0:
         context['in_fav'] = 1
+    book_url = str(BASE_DIR).replace('\\','/') + str(x.get_url())
+    context['PDF'] = book_url
     context['image_url'] = x.COVER;
     context['title'] = x.title;
     context['desc'] = x.desc;
