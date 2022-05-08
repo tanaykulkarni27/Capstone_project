@@ -1,7 +1,4 @@
 var base_url = 'http://localhost:8000/RESTAPI?format=json';
-// $("#search-btn").click(function (e){
-//   alert('hello world');
-// });
 function __search(txt){
   var api_url = 'http://localhost:8000/RESTAPI';
   $.ajax({

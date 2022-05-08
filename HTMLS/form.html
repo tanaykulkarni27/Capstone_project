@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="/static/css/style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/css/reg.css">
+		<script type="text/javascript" src="/static/js/reg.js"></script>
+	</head>
+	<body>
+		<header class="header">
+	      	<div class="header-2">
+				<nav class="navbar">
+					<a href="/">home</a>
+					<a href="grid">Books</a>
+					<a href="/upload">Upload</a>
+					<a href="/fav">favourites</a>
+					<a href="#blogs">blogs</a>
+					<a href="#Contact">Contact</a>
+				</nav>
+	      	</div>
+	    </header>
+		<div class="form-style-6">
+			<h1>BOOKIPEDIA E-LIBRARY</h1>
+			<form enctype="multipart/form-data" id="upld_form">
+				<input type="text" id="FNAME" autocomplete="off" name="FNAME" placeholder="FirstName" required/>
+				<input type="text" id="LNAME" autocomplete="off" name="LNAME" placeholder="LastName" required/>
+				<input type="text" id="USNAME" autocomplete="off" name="USNAME" placeholder="UserName" required/>
+				<input type="email" id="EMAIL" autocomplete="off" name="EMAIL" placeholder="Email" required/>
+				<input type="password" id="pwd" autocomplete="off" name="PWD" placeholder="Password" required/>
+				<input type="password" id="pwd2" autocomplete="off" name="PWD_2" placeholder="Re-Password" required/>
+				<br>
+				<button type="button" onclick="sbt()" id="submit" name="submit">Submit</button>
+				<center><div id="buffer" class="bufferer"></div></center>
+			</form>
+		</div>
+	</body>
+</html>
