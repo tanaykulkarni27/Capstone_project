@@ -105,7 +105,7 @@ def UPLOAD(req):
 
 class ACT(APIView):
 
-    def get(req):
+    def get(self,req):
         als = BOOK.objects.all()
         category = req.GET.get('category')
         inner = req.GET.get('search')

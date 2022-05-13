@@ -21,7 +21,7 @@ from main import views,__voice,__txttospc
 # pause_reading
 urlpatterns = [
     path('pause',__txttospc.pause_reading),
-    path('listen/<int:id>',__txttospc.read_ppl),
+    path('listen/<int:idx>',__txttospc.read_ppl),
     path('fav',views.__favourite),
     path('cartapi',views.__API.as_view()),
     path("savebook/<int:book_id>",views.save_book),
